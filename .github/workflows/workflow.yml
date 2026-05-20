@@ -62,5 +62,8 @@ jobs:
           script: |
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             docker pull ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest
+            
+            cd lab4
+            
             docker compose down
             docker compose up -d
