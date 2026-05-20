@@ -35,7 +35,7 @@ services:
       - pgadmin-data:/var/lib/pgadmin
 
   app:
-    image: turbokwaka/allo-parser:v1
+    image: ghcr.io/turbokwaka/allo-scraper:latest
     restart: always
 
     env_file:
