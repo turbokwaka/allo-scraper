@@ -74,13 +74,13 @@ jobs:
       - name: Set Deployment Variables
         run: |
           if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            echo "DEPLOY_DIR=~/allo_main" >> $GITHUB_ENV
+            echo "DEPLOY_DIR=allo_main" >> $GITHUB_ENV
             echo "IMAGE_TAG=latest" >> $GITHUB_ENV
             echo "APP_PORT=8000" >> $GITHUB_ENV
             echo "POSTGRES_PORT=5789" >> $GITHUB_ENV
             echo "PGADMIN_PORT=5790" >> $GITHUB_ENV
           else
-            echo "DEPLOY_DIR=~/allo_dev" >> $GITHUB_ENV
+            echo "DEPLOY_DIR=allo_dev" >> $GITHUB_ENV
             echo "IMAGE_TAG=dev" >> $GITHUB_ENV
             echo "APP_PORT=8001" >> $GITHUB_ENV
             echo "POSTGRES_PORT=5791" >> $GITHUB_ENV
