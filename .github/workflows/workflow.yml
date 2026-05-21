@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
       - dev
   workflow_dispatch:
 
@@ -38,7 +38,7 @@ jobs:
 
       - name: Set Image Tag based on branch
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+          if [[ "${{ github.ref }}" == "refs/heads/master" ]]; then
             echo "TAG=latest" >> $GITHUB_ENV
           else
             echo "TAG=dev" >> $GITHUB_ENV
@@ -73,8 +73,8 @@ jobs:
 
       - name: Set Deployment Variables
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            echo "DEPLOY_DIR=allo_main" >> $GITHUB_ENV
+          if [[ "${{ github.ref }}" == "refs/heads/master" ]]; then
+            echo "DEPLOY_DIR=allo_master" >> $GITHUB_ENV
             echo "IMAGE_TAG=latest" >> $GITHUB_ENV
             echo "APP_PORT=8000" >> $GITHUB_ENV
             echo "POSTGRES_PORT=5789" >> $GITHUB_ENV
